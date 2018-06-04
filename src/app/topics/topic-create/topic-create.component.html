@@ -1,0 +1,12 @@
+  <div class="form-group">
+    <label for="formGroupExampleInput">Name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" [(ngModel)]="topicName">
+
+  </div>
+  <div class="form-group">
+    <label >Details</label>
+    <div [froalaEditor] [(ngModel)]="topicDetails">Hello, Froala!</div>
+  </div>
+
+
+  <button class="btn btn-info" (click)="addTopic()">Add</button>

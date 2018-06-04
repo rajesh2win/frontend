@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+
+  <li class="nav-item ">
+    <a class="nav-link" [routerLink]="['/createfeedback', 'feedback']">Create new feedback</a>
+  </li>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let topic of topicList;">
+    <td><a [routerLink]="['/editfeedback', topic.id]" class="btn btn-success">{{topic.topicName}}</a></td>
+
+  </tr>
+
+  </tbody>
+</table>

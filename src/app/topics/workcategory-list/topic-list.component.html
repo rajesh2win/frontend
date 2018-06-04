@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+
+  <li class="nav-item ">
+    <a class="nav-link" [routerLink]="['/createworkcategory', 'work']">Create new Work Category</a>
+  </li>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let topic of topicList;">
+    <td><a [routerLink]="['/works', topic.topicName]" [queryParams]="{item: topic.topicName}" class="btn btn-success">{{topic.topicName}}</a></td>
+    <td><a [routerLink]="['/editworkcategory', topic.id]" class="btn btn-success">Edit</a></td>
+  </tr>
+  </tbody>
+</table>

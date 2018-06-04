@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+
+  <li class="nav-item ">
+    <a class="nav-link" [routerLink]="['/createcomplaints', 'complaints']">Create new Complaint</a>
+  </li>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let topic of topicList;">
+    <td><a [routerLink]="['/editcomplaints', topic.id]" class="btn btn-success">{{topic.topicName}}</a></td>
+
+  </tr>
+
+  </tbody>
+</table>

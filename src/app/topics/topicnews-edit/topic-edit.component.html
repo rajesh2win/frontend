@@ -1,0 +1,18 @@
+<div class="form-group">
+  <label for="formGroupExampleInput">Name</label>
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" [(ngModel)]="topic.topicName">
+</div>
+<div class="form-group">
+  <label >Details</label>
+  <div [froalaEditor] [(ngModel)]="topic.topicDetails"></div>
+</div>
+<div class="form-group">
+  <div *ngFor="let file of fileUploads | async">
+    <div class="panel-body">
+      <img src="{{file}}" alt="{{file}}" style="max-width:350px"/>
+    </div>
+  </div>
+
+</div>
+<button class="btn btn-info" (click)="updateTopic()">Update</button>
+<button class="btn btn-info" (click)="deleteTopic()">Delete</button>

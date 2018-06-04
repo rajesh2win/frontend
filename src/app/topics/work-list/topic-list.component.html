@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+
+  <li class="nav-item ">
+    <a class="nav-link" [routerLink]="['/creatework', 'work']" >Create new Work</a>
+  </li>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let topic of topicList;">
+    <td><a [routerLink]="['/editwork', topic.id]" class="btn btn-success">{{topic.topicName}}</a></td>
+
+  </tr>
+
+  </tbody>
+</table>

@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+
+  <li class="nav-item ">
+    <a class="nav-link" [routerLink]="['/createmanifest', 'manifest']">+ Create new Manifest</a>
+  </li>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let topic of topicList;">
+    <td><a [routerLink]="['/editmanifest', topic.id]" class="btn btn-success">{{topic.topicName}}</a></td>
+
+  </tr>
+
+  </tbody>
+</table>

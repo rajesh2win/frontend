@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+
+  <li class="nav-item ">
+    <a class="nav-link" [routerLink]="['/createmandal2', 'mandal2']">Create new Imrovement</a>
+  </li>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let topic of topicList;">
+    <td><a [routerLink]="['/editmandal2', topic.id]" class="btn btn-success">{{topic.topicName}}</a></td>
+  </tr>
+
+  </tbody>
+</table>

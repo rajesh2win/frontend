@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+
+  <li class="nav-item ">
+    <a class="nav-link" [routerLink]="['/createpolicy', 'policy']">Create new Policy</a>
+  </li>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let topic of topicList;">
+    <td><a [routerLink]="['/editpolicy', topic.id]" class="btn btn-success">{{topic.topicName}}</a></td>
+
+  </tr>
+
+  </tbody>
+</table>

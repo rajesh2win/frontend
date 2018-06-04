@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+.fr-box.fr-basic .fr-element {
+  min-height: 200px !important;
+}
