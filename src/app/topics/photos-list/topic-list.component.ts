@@ -29,6 +29,19 @@ export class PhotosListComponent implements OnInit {
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
   }
+
+  delete(file){
+    debugger;
+    var file = file.replace(/^.*[\\\/]/, '');
+    this.uploadService.deletePhotosToStorage(file).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        //this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log('File is deleted!');
+      }
+    });
+    this._navigate.navigateByUrl('/');
+  }
   upload() {
 
     this.uploadService.pushPhotosToStorage(this.fileToUpload).subscribe(event => {

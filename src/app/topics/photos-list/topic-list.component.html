@@ -7,6 +7,7 @@
     <div *ngFor="let file of fileUpload | async">
       <div class="panel-body">
         <img src="{{file}}" alt="{{file}}" style="max-width:350px"/>
+        <button class="btn btn-info" (click)="delete(file)">Delete</button>
       </div>
     </div>
 
@@ -15,6 +16,7 @@
     <input type="file"
            id="file"
            (change)="handleFileInput($event.target.files)">
+
   </div>
 
 

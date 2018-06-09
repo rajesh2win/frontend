@@ -45,6 +45,13 @@ export class UploadFileService {
 
     return this.http.request(req);
   }
+
+ deletePhotosToStorage(file): Observable<any> {
+    return this.http.request('DELETE',this.API_URL+"deletePhoto/"+file);
+  }
+  deleteVideoToStorage(file): Observable<any> {
+    return this.http.request('DELETE',this.API_URL+"deleteVideo/"+file);
+  }
   pushAnyToStorage(file: File): Observable<HttpEvent<{}>> {
     let formdata: FormData = new FormData();
 
@@ -54,7 +61,6 @@ export class UploadFileService {
       reportProgress: true,
       responseType: 'text'
     });
-
     return this.http.request(req);
   }
   getAny():Observable<any> {

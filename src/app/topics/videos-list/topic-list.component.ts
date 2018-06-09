@@ -24,6 +24,17 @@ export class VideosListComponent implements OnInit {
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
   }
+  deleteVideo(file){
+    var file = file.replace(/^.*[\\\/]/, '');
+    this.uploadService.deleteVideoToStorage(file).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        //this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log('File is deleted!');
+      }
+    });
+    this._navigate.navigateByUrl('/');
+  }
   upload() {
 
     this.uploadService.pushVideoToStorage(this.fileToUpload).subscribe(event => {

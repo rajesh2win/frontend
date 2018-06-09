@@ -73,10 +73,11 @@ import { WorkCategoryEditComponent } from './topics/workcategory-edit/topic-edit
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
 import {UploadFileService} from './services/upload-file.service';
+import { LoginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: TopicListComponent },
+  { path: '', component: LoginComponent },
   { path: 'create', component: TopicCreateComponent },
   { path: 'edit/:id', component: TopicEditComponent },
   { path: 'edit1/:id', component: TopicEditComponent },
@@ -126,12 +127,14 @@ const appRoutes: Routes = [
   { path: 'mandal5/:id', component: Mandal5ListComponent },
   { path: 'createmandal5/:id', component: Mandal5CreateComponent },
   { path: 'editmandal5/:id', component: Mandal5EditComponent },
-  { path: '**', component: AppComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'app', component: AppComponent }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
