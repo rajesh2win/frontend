@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class ComplaintsCreateComponent implements OnInit {
   topicName ="";
   topicDetails = "";
+  phoneNumber ="";
   imgName="";
   fileToUpload: File = null;
   constructor(private _http:HttpService,private uploadService: UploadFileService,private route: ActivatedRoute,private _navigate: Router) {
@@ -51,7 +52,7 @@ export class ComplaintsCreateComponent implements OnInit {
       this.imgName = this.fileToUpload.name;
     }
     debugger;
-    this._http.createTopic({controllerName:this.route.snapshot.params['id'],topicName:this.topicName,topicDetails:this.topicDetails,imageUrl: this.imgName}).subscribe(
+    this._http.createTopic({controllerName:this.route.snapshot.params['id'],phoneNumber:this.phoneNumber,topicName:this.topicName,topicDetails:this.topicDetails,imageUrl: this.imgName}).subscribe(
       data=>{
         debugger;
       },

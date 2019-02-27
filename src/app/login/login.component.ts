@@ -8,8 +8,11 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
+  showNav = false;
   constructor(private router : Router) { }
   ngOnInit() {
+    debugger;
+    this.showNav = false;
   }
   login() {
     if(this.email == 'raj@gmail.com' && this.password == 'password') {

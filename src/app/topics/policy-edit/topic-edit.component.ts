@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from "../../services/http.service";
+import {  HttpResponse, HttpEventType } from '@angular/common/http';
 import {ActivatedRoute, Router} from "@angular/router";
 import {UploadFileService} from '../../services/upload-file.service';
 import {Observable} from 'rxjs/Rx';
@@ -10,9 +11,12 @@ import {Observable} from 'rxjs/Rx';
   styleUrls: ['./topic-edit.component.css']
 })
 export class PolicyEditComponent implements OnInit {
-  topic ={};
+  topic ={imageUrl:''};
   controllerName ="policy";
+  imgName="";
+  tmpImg="";
   fileUploads: Observable<any[]>
+  fileToUpload: File = null;
   constructor(private _http:HttpService,private route: ActivatedRoute,private _navigate: Router,private uploadService: UploadFileService) {
 
   }
@@ -36,8 +40,25 @@ export class PolicyEditComponent implements OnInit {
 
       });
   }
-
+  deleteImage(file){
+    var file = file.replace(/^.*[\\\/]/, '');
+    this.uploadService.deletePhotosCommon(file).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        //this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log('File is deleted!');
+      }
+    });
+    this._navigate.navigateByUrl('/');
+  }
   updateTopic(data){
+    if(this.fileToUpload !== null) {
+      this.upload();
+      this.tmpImg = this.topic.imageUrl;
+      this.imgName = this.fileToUpload.name;
+      this.topic.imageUrl = this.fileToUpload.name;
+      this.deleteImage(this.tmpImg);
+    }
     this._http.updateTopic(this.topic,this.controllerName).subscribe(
       data=>{
 
@@ -48,6 +69,21 @@ export class PolicyEditComponent implements OnInit {
       completed=>{
         this._navigate.navigateByUrl('/');
       })
+  }
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+  upload() {
+
+    this.uploadService.pushFileToStorage(this.fileToUpload).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        //this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!');
+      }
+    });
+
+    //this.fileToUpload = undefined
   }
   deleteTopic(data){
     this._http.deleteTopic(this.topic,this.controllerName).subscribe(

@@ -6,6 +6,7 @@ import "rxjs/add/operator/map";
 export class HttpService {
   //private API_URL= "/";
   private API_URL= "/react/";
+  //private API_URL= "/kondapi/";
 
   constructor(private _http:HttpClient) {
 

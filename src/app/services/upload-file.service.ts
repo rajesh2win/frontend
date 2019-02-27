@@ -5,7 +5,9 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UploadFileService {
   //private API_URL= "/";
-  private API_URL= "/react/";
+  //private API_URL= "/react/";
+  private API_URL= "/kondapi/";
+
   constructor(private http: HttpClient) {}
 
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
@@ -48,6 +50,9 @@ export class UploadFileService {
 
  deletePhotosToStorage(file): Observable<any> {
     return this.http.request('DELETE',this.API_URL+"deletePhoto/"+file);
+  }
+  deletePhotosCommon(file): Observable<any> {
+    return this.http.request('DELETE',this.API_URL+"deletePhotoCommon/"+file);
   }
   deleteVideoToStorage(file): Observable<any> {
     return this.http.request('DELETE',this.API_URL+"deleteVideo/"+file);

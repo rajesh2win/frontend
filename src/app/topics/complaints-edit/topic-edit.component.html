@@ -7,6 +7,10 @@
   <div [froalaEditor] [(ngModel)]="topic.topicDetails"></div>
 </div>
 <div class="form-group">
+  <label >phone</label>
+  <input type="text" readonly class="form-control" id="formGroupExampleInput1" placeholder="" [(ngModel)]="topic.phoneNumber">
+</div>
+<div class="form-group">
   <div *ngFor="let file of fileUploads | async">
     <div class="panel-body">
       <img src="{{file}}" alt="{{file}}" style="max-width:350px"/>
