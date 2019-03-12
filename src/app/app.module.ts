@@ -40,6 +40,7 @@ import {ShareListComponent} from "./topics/share-list/topic-list.component";
 
 import {VideosListComponent} from "./topics/videos-list/topic-list.component";
 
+import {AudiosListComponent} from "./topics/audios-list/topic-list.component";
 import { MandalListComponent } from './topics/mandal-list/topic-list.component';
 import { MandalCreateComponent } from './topics/mandal-create/topic-create.component';
 import { MandalEditComponent } from './topics/mandal-edit/topic-edit.component';
@@ -108,6 +109,7 @@ const appRoutes: Routes = [
   { path: 'editphonenumbers/:id', component: PhoneNumbersEditComponent },
   { path: 'photos/:id', component: PhotosListComponent },
   { path: 'videos/:id', component: VideosListComponent },
+  { path: 'audios/:id', component: AudiosListComponent },
   { path: 'share/:id', component: ShareListComponent },
   { path: 'mandal/:id', component: MandalListComponent },
   { path: 'createmandal/:id', component: MandalCreateComponent },

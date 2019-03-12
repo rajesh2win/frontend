@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UploadFileService {
   //private API_URL= "/";
-  //private API_URL= "/react/";
-  private API_URL= "/kondapi/";
+  private API_URL= "/react/";
+  //private API_URL= "/kondapi/";
 
   constructor(private http: HttpClient) {}
 
@@ -28,6 +28,19 @@ export class UploadFileService {
     formdata.append('file', file);
 
     const req = new HttpRequest('POST', this.API_URL+"uploadVideos", formdata, {
+      reportProgress: true,
+      responseType: 'text'
+    });
+
+    return this.http.request(req);
+  }
+
+  pushAudioToStorage(file: File): Observable<HttpEvent<{}>> {
+    let formdata: FormData = new FormData();
+
+    formdata.append('file', file);
+
+    const req = new HttpRequest('POST', this.API_URL+"uploadAudios", formdata, {
       reportProgress: true,
       responseType: 'text'
     });
@@ -57,6 +70,9 @@ export class UploadFileService {
   deleteVideoToStorage(file): Observable<any> {
     return this.http.request('DELETE',this.API_URL+"deleteVideo/"+file);
   }
+  deleteAudioToStorage(file): Observable<any> {
+    return this.http.request('DELETE',this.API_URL+"deleteAudio/"+file);
+  }
   pushAnyToStorage(file: File): Observable<HttpEvent<{}>> {
     let formdata: FormData = new FormData();
 
@@ -85,5 +101,8 @@ export class UploadFileService {
   }
   getallVideofiles():Observable<any> {
     return this.http.get(this.API_URL+'getallvideos/')
+  }
+  getallAudiofiles():Observable<any> {
+    return this.http.get(this.API_URL+'getallaudios/')
   }
 }

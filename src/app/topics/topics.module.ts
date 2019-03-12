@@ -33,6 +33,7 @@ import { PhoneNumbersEditComponent } from './phonenumbers-edit/topic-edit.compon
 
 import { PhotosListComponent } from './photos-list/topic-list.component';
 import { VideosListComponent } from './videos-list/topic-list.component';
+import { AudiosListComponent } from './audios-list/topic-list.component';
 
 import { ShareListComponent } from './share-list/topic-list.component';
 
@@ -92,7 +93,7 @@ import {RouterModule} from "@angular/router";
     Mandal2CreateComponent,Mandal3ListComponent,Mandal3EditComponent,
     Mandal3CreateComponent,Mandal4ListComponent,Mandal4EditComponent,
     Mandal4CreateComponent,Mandal5ListComponent,Mandal5EditComponent,
-    Mandal5CreateComponent,WorkCategoryListComponent,WorkCategoryCreateComponent,WorkCategoryEditComponent,ShareListComponent
+    Mandal5CreateComponent,WorkCategoryListComponent,WorkCategoryCreateComponent,WorkCategoryEditComponent,ShareListComponent,AudiosListComponent
   ]
 })
 export class TopicsModule { }
